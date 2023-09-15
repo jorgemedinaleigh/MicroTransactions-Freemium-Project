@@ -46,11 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78be1dfa3d09d245b1e80be2df489a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  popEffect: {fileID: 6151827540246375881, guid: a8071a704838cd440bdc44b0f4986501, type: 3}
   minSpeed: 1
   maxSpeed: 5
   xSpawnRange: 2.5
-  ySpawnPos: -5
+  ySpawnPos: -7
+  zSpawnRange: 2
 --- !u!54 &1505106142068567326
 Rigidbody:
   m_ObjectHideFlags: 0

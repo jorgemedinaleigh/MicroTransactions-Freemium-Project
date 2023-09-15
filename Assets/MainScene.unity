@@ -159,8 +159,8 @@ MonoBehaviour:
   - {fileID: 5515814367863380790, guid: 23c4bc88f8cdd11459217f72d3e763de, type: 3}
   - {fileID: 1926526141341751081, guid: 0555241e16a8ebd4db2fdb3fd77fd075, type: 3}
   - {fileID: 244696062505601493, guid: 1ac77ac754a01054f97c122c2aea1766, type: 3}
-  spawnRateMin: 1
-  spawnRateMax: 3
+  spawnRateMin: 0.5
+  spawnRateMax: 2
 --- !u!4 &1164333873
 Transform:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1263949943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

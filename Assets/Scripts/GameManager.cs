@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        int index = Random.Range(0, balloons.Count);
+        Instantiate(balloons[index]);
         StartCoroutine(SpawnBalloon());
     }
 

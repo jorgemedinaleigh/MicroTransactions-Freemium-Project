@@ -3,22 +3,21 @@ using UnityEngine;
 public class BalloonController : MonoBehaviour
 {
     private GameManager gameManager;
-    private ParticleSystem popEffect;
+    public ParticleSystem popEffect;
     private Rigidbody balloonRb;
 
     public float minSpeed;
     public float maxSpeed;
     public float xSpawnRange;
     public float ySpawnPos;
+    public float zSpawnRange;
 
     void Start()
     {
         balloonRb = GetComponent<Rigidbody>();
-        popEffect = GetComponent<ParticleSystem>();
 
         transform.position = RandomSpawnPos();
         balloonRb.AddForce(RandomForce(), ForceMode.Impulse);
-        var main = popEffect.main;
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -26,6 +25,12 @@ public class BalloonController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnMouseDown() 
+    {
+        Destroy(gameObject);
+        Instantiate(popEffect, transform.position, popEffect.transform.rotation);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,16 +41,9 @@ public class BalloonController : MonoBehaviour
         }
     }
 
-    private void DestroyBalloon()
-    {
-        GetComponent<Renderer>().enabled = false;
-        popEffect.Play();
-        Destroy(gameObject, popEffect.main.duration);
-    }
-
     Vector3 RandomSpawnPos()
     {
-        return new Vector3(Random.Range(-xSpawnRange, xSpawnRange), ySpawnPos, 0);
+        return new Vector3(Random.Range(-xSpawnRange, xSpawnRange), ySpawnPos, Random.Range(0,-zSpawnRange));
     }
 
     Vector3 RandomForce()

@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class BalloonController : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
-
+    private GameManager gameManager;
     private ParticleSystem popEffect;
     private Rigidbody balloonRb;
-    private Renderer renderer;
 
     public float minSpeed;
     public float maxSpeed;
@@ -17,12 +15,12 @@ public class BalloonController : MonoBehaviour
     {
         balloonRb = GetComponent<Rigidbody>();
         popEffect = GetComponent<ParticleSystem>();
-        renderer = GetComponent<Renderer>();
 
         transform.position = RandomSpawnPos();
         balloonRb.AddForce(RandomForce(), ForceMode.Impulse);
         var main = popEffect.main;
-        main.startColor = renderer.material.color;
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     void Update()
@@ -30,17 +28,17 @@ public class BalloonController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision other) 
+    private void OnTriggerEnter(Collider other)
     {
-        if(!other.gameObject.CompareTag(gameObject.tag))
+        if(other.CompareTag("Finish"))
         {
-            DestroyBalloon();
+            Destroy(gameObject);
         }
     }
 
     private void DestroyBalloon()
     {
-        renderer.enabled = false;
+        GetComponent<Renderer>().enabled = false;
         popEffect.Play();
         Destroy(gameObject, popEffect.main.duration);
     }

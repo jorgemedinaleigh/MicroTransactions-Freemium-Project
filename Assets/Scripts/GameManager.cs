@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public List<GameObject> balloons;
+    public float spawnRateMin;
+    public float spawnRateMax;
+
     void Start()
+    {
+        StartCoroutine(SpawnBalloon());
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator SpawnBalloon()
     {
-        
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(spawnRateMin, spawnRateMax));
+
+            int index = Random.Range(0, balloons.Count);
+            Instantiate(balloons[index]);
+        }
     }
 }

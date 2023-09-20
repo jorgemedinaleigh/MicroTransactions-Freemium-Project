@@ -31,6 +31,7 @@ public class BalloonController : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(popEffect, transform.position, popEffect.transform.rotation);
+        gameManager.UpdateScore();
     }
 
     private void OnTriggerEnter(Collider other)

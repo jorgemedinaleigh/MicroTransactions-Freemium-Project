@@ -818,12 +818,12 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 0
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 5173689a-93b1-4d7e-80a0-4da1253430f2
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: MicroTransactions Freemium Project
+  projectName: Balloon Clicker
   organizationId: jmedinal
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

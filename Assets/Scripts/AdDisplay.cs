@@ -10,15 +10,14 @@ public class AdDisplay : MonoBehaviour
     public bool adStarted;
     private bool testMode = true;
 
-    BannerPosition _bannerPosition = BannerPosition.BOTTOM_CENTER;
+    BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
 
     void Start()
     {
         Advertisement.Initialize(myGameId, testMode);
-        Advertisement.Banner.SetPosition(_bannerPosition);
+        Advertisement.Banner.SetPosition(bannerPosition);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Advertisement.isInitialized && !adStarted)

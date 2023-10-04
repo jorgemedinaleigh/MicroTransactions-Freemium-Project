@@ -27,7 +27,7 @@ public class BalloonController : MonoBehaviour
         
     }
 
-    private void OnMouseDown() 
+    public void PopBalloon() 
     {
         Destroy(gameObject);
         Instantiate(popEffect, transform.position, popEffect.transform.rotation);
